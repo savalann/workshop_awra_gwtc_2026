@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+.python-version
+
+# Jupyter
+.ipynb_checkpoints/
+
+# CatBoost training artifacts
+catboost_info/
+
+# Logs
+*.log
+
+# Generated outputs
+results/
+*.png
