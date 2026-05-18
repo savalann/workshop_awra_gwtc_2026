@@ -28,7 +28,7 @@ def visulization_plot(name=None, model=None, cleaned_data=None, all_data=None):
     np.save(f'./results/full_pred_{name}.npy', full_pred)
 
     # Load raster shape from a reference
-    with rasterio.open(f'./results/{name}_validation_90m.tif') as ref:
+    with rasterio.open(f'./inputs/{name}_validation_90m.tif') as ref:
         original_shape = (ref.height, ref.width)
         meta = ref.meta.copy()
 
@@ -43,7 +43,7 @@ def visulization_plot(name=None, model=None, cleaned_data=None, all_data=None):
 
     tif_paths = {
         'Predicted': (f'./results/{name}_flood_prediction.tif', '#0000FF'),
-        'Validation': (f'./results/{name}_validation_90m.tif', '#FF0000'),
+        'Validation': (f'./inputs/{name}_validation_90m.tif', '#FF0000'),
     }
 
     fig, axes = plt.subplots(1, 2, figsize=(22, 10), dpi=300)
@@ -141,5 +141,5 @@ def metric_plot(results_01=None, results_02=None):
             loc='upper right', frameon=True, framealpha=1, edgecolor='lightgray')
 
     plt.tight_layout()
-    plt.savefig('model_comparison.png', dpi=300, bbox_inches='tight', facecolor='white')
+    plt.savefig('./results/model_comparison.png', dpi=300, bbox_inches='tight', facecolor='white')
     plt.show()
